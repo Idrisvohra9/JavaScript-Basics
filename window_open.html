@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Window</title>
+</head>
+<body>
+	
+	<script>
+		function abc()
+		{
+			var a;
+			a=window.open(" ");
+			a.document.write("<table border=2>");
+			a.document.write("<tr>");
+			a.document.write("<td>");
+			a.document.write("First name");
+			a.document.write("</td>");
+			a.document.write("<td>");
+			a.document.write("Last name");
+			a.document.write("</td>");
+			a.document.write("</tr>");
+			a.document.write("<tr>");
+			a.document.write("<tr>");
+			a.document.write("<td>");
+			a.document.write(f1.t1.value);
+			a.document.write("</td>");
+			a.document.write("<td>");
+			a.document.write(f1.t2.value);
+			a.document.write("</td>");
+			a.document.write("</table>");
+		}
+		
+	</script>
+	<form name="f1">
+		FirstName:
+		<input type="text" name="t1">
+		LastName:
+		<input type="text" name="t2">
+		<input type="button" value="Submit" onclick="abc()">
+
+</body>
+</html>

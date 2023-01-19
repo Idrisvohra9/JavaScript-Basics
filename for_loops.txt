@@ -1,0 +1,91 @@
+There are 4 types of for loops in JS.
+
+Each of them have a reason to be used and have unique functionality and Syntax.
+
+They are:
+1.{
+    |Name: Simple for loop
+    * Description: Iterates through the elements of iterables.
+    Syntax:
+    for(let i = 0; i < array.length; i++){
+        console.log(array[i]);
+    }
+    # Output: The elements of the array as per indexed
+}
+
+2.{
+    |Name: forEach loop
+    * Description: Iterates through the elements of iterables and performs a function on each element, much like map function it takes a callback function as an argument. But it needs a predefined variable and uses it to return a value. 
+    @ Note: forEach loop is mainly used to iterate through the elements of an indexed iterable.
+    Syntax:
+    let arr = [3,4,5,6]
+    let product = 1;
+    array.forEach((item) => product = product * item);
+    ?           Other example:
+    // We can also provide a function with these parameters (But they are optional):
+
+    function myFunction(item, index, arr) {
+        arr[index] = item * 10;
+    }
+    # Output: 360
+}
+
+3.{
+    |Name: for in loop
+    * Description: Iterates through the properties of an Object, it can also be used to iterate through an array but it might not give the expected results(It is better to use forEach instead for array).
+    Syntax: 
+    for(key in object)
+
+    ? Example:
+    const obj = {
+        fName: "Idris",
+        lName: "Vohra",
+        Age: 19
+    }
+
+    let element ="";
+    for (let key in obj) {
+        element += obj[key] + " ";
+    }
+    console.log(element);
+    // The working of for in loop is much like the for loop of python
+    #Output:
+    Idris Vohra 19
+
+    @ Using for in loop with array: 
+    const cars = ["BMW", "Volvo", "Mini"];
+
+    let text = "";
+    for (let x in cars) {
+        text += x+ "\n";
+    }
+    console.log(text);
+    # Output:
+    0
+    1
+    2
+
+}
+
+4.
+{
+    |Name: for of loop
+    * Description: Iterates through the elements of iterables. It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:
+
+    Syntax:
+    for(variable of iterable)
+
+    ? Example:
+    const cars = ["BMW", "Volvo", "Mini"];
+
+    let text = "";
+    for (let x of cars) {
+        text += x+ "\n";
+    }
+    console.log(text);
+    # Output:
+    BMW
+    Volvo
+    Mini
+
+}

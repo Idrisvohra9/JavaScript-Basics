@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en-IN">
+
+<head>
+    <title>JS Cookies</title>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width" />
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/x-icon" href="" />
+
+    <!-- Bootstrap responsive CSS Stuff -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Stylesheet -->
+
+    <link rel="stylesheet" href="" />
+</head>
+
+<body class="bg-dark text-light">
+    <div class="d-flex justify-content-center mt-3 mb-3">
+        <h1>Cookie Operations in JS</h1>
+    </div>
+    <div class="d-flex justify-content-between mt-3 mb-3 flex-wrap align-items-between">
+        <button class="btn btn-primary" onclick="setCookie('Name','Idris',5)">
+            Create Name Cookie
+        </button>
+        <button class="btn btn-primary" onclick="setCookie('Email', 'idrishaider987@gmail.com', 5);">
+            Create Email Cookie
+        </button>
+        <button class="btn btn-primary" onclick="setCookie('Password', 'idris123', 5);">
+            Create Password Cookie
+        </button>
+        <button class="btn btn-success" onclick="displayAllCookies()">
+            Display all cookies
+        </button>
+        <button class="btn btn-secondary" onclick="delCookie('Name')">
+            Delete Name Cookie
+        </button>
+        <button class="btn btn-secondary" onclick="delCookie('Email')">Delete Emial Cookie</button>
+        <button class="btn btn-secondary" onclick="delCookie('Password')">
+            Delete Password Cookie
+        </button>
+    </div>
+    <div class="d-flex justify-content-center mt-3 mb-3">
+        <button class="btn btn-danger" onclick="delAllCookies()">Delete all cookies</button>
+    </div>
+    <div class="d-flex justify-content-center mt-5 mb-3">
+        <span id="msg" style="font-size: 30px"></span>
+    </div>
+    <script>
+        // Cookies: A mean to store user related information in a web browser so that the next time a user is logged in the browser will remember their prefrences.
+        // Cookies are in a form of key-value pairs
+        let msg = document.getElementById("msg");
+
+        // First let's create a function that sets a cookie
+        function setCookie(cname, cvalue, expDays = 1) {
+            let d = new Date();
+            d.setTime(d.getTime() + expDays * 24 * 60 * 60 * 1000);
+            let expTime = d.toUTCString();
+            // if expDays(expiry days are set to 1 it means that the cookie will expire in one day) therefore, we have set the expiry time in milliseconds.. So, if the expDays is set to 365 that means that the cookie will expire in a year.
+
+            // If another cookie is created with the same key the previous value can be updated
+            document.cookie = `${cname}=${cvalue}; expires=${expTime};  path=/;`;
+            let c = document.cookie;
+            msg.innerHTML = `Cookie created ${cname}=${cvalue}. It will expire on ${expTime}.`;
+        };
+
+        // This function will get cookie by it's name
+        function getCookie(cname) {
+            if (cname == "" || cname == null) {
+                return null;
+            }
+            else {
+                let name = cname + "=";
+                let cookie = document.cookie;
+                if (cookie != "" || cookie != null || cookie != undefined) {
+                    let value = cookie.split(name)[1].split(";")[0];
+                    return value;
+                }
+            }
+        }
+
+        console.log(getCookie("Name"));
+
+        // Check for a specific cookie and value:
+        function checkCookie() {
+            let username = getCookie("Name");
+            if (username != "") {
+                alert("Welcome again " + username);
+            } else {
+                username = prompt("Please enter your name:", "");
+                if (username != "" && username != null) {
+                    setCookie("username", username, 365);
+                }
+            }
+        }
+        // Function for deleting a cookie just set the expiry date to a past date.
+        function delCookie(cname) {
+            let pastDate = "Thu, 01 Jan 1970 00:00:00 UTC";
+
+            let c = document.cookie;
+            if (getCookie(cname) == undefined) {
+                msg.innerText = "The cookie is not available."
+            }
+            else{
+                msg.innerHTML = `${cname}=${getCookie(cname)} was deleted..`;
+                document.cookie = `${cname}=${getCookie(cname)}; expires=${pastDate}; path=/;`;
+            }
+        }
+
+        function displayAllCookies() {
+            msg.innerHTML = document.cookie;
+            if (document.cookie == "") {
+                msg.innerHTML = "There are no cookies.."
+            }
+        }
+
+        function delAllCookies() {
+            delCookie("Name");
+            delCookie("Email");
+            delCookie("Password");
+            msg.innerHTML = "All cookies have been deleted.";
+        }
+      //document.addEventListener("onload", checkCookie)
+    </script>
+</body>
+
+</html>
