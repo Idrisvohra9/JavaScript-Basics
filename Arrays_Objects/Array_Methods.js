@@ -114,7 +114,7 @@
   // #The removed element:  [ 'Kiwi' ]
 
   fruits.splice(fruits.length - 1, 1); // this will remove the last element from the fruit array.
-
+  
   console.log("The new fruit array: ", fruits);
   // # Output:
   // The new fruit array:
