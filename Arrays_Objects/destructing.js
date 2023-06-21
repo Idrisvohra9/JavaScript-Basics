@@ -28,8 +28,6 @@ function calculate(a, b) {
 const [add, , , divide] = calculate(4, 7);
 
 console.log("Add: " + add);
-// console.log("Subtract: " + subtract);
-// console.log("Multiply: " + multiply);
 console.log("Divide: " + divide);
 
 console.log("Name: ", Name);
