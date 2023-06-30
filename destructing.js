@@ -12,9 +12,16 @@ const obj = {
 console.log("Name: " + arr[0]);
 console.log(obj.Name);
 
+console.log();
 
 // ES6 Way of destructuring:
-const [Name, , Sem] = arr;
+const [name, , sem] = arr;
+const { Name, Sem } = obj;
+console.log(Name);
+console.log(Sem);
+
+console.log();
+
 function calculate(a, b) {
     const add = a + b;
     const subtract = a - b;

@@ -38,7 +38,7 @@ const subtract = new Function("a", "b", "return a - b");
 
 // Self invoking function:
 (
-    function(){
+    function () {
         console.log("I invoked myself!");
     }
 )();
@@ -46,24 +46,24 @@ const subtract = new Function("a", "b", "return a - b");
 
 // A function that returns a number of arguments passed in it:
 
-function returnNumArgs(a,b,c) {
+function returnNumArgs(a, b, c) {
     return arguments.length;// imp: Only works in non anonymous functions
 }
 
 // A function that returns it's name:
 
-function returnCallee(){
+function returnCallee() {
     return arguments.callee;
 }
 
 // Calling functions and output:
-console.log("Calling the multiply(20,2) function:", multiply(20,2));
-console.log("Calling the divide(10,20) function:", divide(10,20));
-console.log("Calling the add(20,20) function:", add(20,20));
-console.log("Calling the subtract(40,20) function:", subtract(40,20));
+console.log("Calling the multiply(20,2) function:", multiply(20, 2));
+console.log("Calling the divide(10,20) function:", divide(10, 20));
+console.log("Calling the add(20,20) function:", add(20, 20));
+console.log("Calling the subtract(40,20) function:", subtract(40, 20));
 console.log("Type of function: ", typeof multiply);
-console.log("Number of arguments passed: ", returnNumArgs(1,2));
-console.log("The function callee: ",returnCallee());
+console.log("Number of arguments passed: ", returnNumArgs(1, 2));
+console.log("The function callee: ", returnCallee());
 // The typeof operator in JavaScript returns "function" for functions.
 
 // But, JavaScript functions can best be described as objects.
