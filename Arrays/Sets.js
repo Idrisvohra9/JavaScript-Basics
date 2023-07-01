@@ -54,6 +54,17 @@ console.log("Does The first set contains 9?", firstSet.has(9) ? "yes" : "no");
 console.log()
 
 // .keys(), .values() .entries():
-
-
+// .keys() and .values() return the same thing the array of values
+// It is to make them compatible with objects
+// .entries() will return the same a 
+console.log(firstSet.entries());
 // forEach()
+
+//# Set vs. WeakSet:
+
+// Set: A Set is a collection of unique values of any type. Like Map, Set holds strong references to its values, preventing them from being garbage collected as long as the Set exists.
+
+// WeakSet: WeakSet is specifically designed to store object references. It only allows objects as values, and these object references are held weakly. Similar to WeakMap, if there are no other references to an object stored in a WeakSet, it can be garbage collected even if it is still present in the WeakSet.
+
+const firstWeakSet = new WeakSet([{ name: "Idris" }, { age: 19 }]);
+console.log(firstWeakSet);

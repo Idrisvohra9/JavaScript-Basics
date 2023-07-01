@@ -1,7 +1,7 @@
 // Function:
 // Functions are a block of code that is executed when called and has return types
 // A function is used to either return a value or manipulate a exisiting value
-
+// If the function does not return a value then it returns an 'undefined' value it is treated as void
 // Declaring a Function:
 
 

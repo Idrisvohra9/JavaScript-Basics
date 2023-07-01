@@ -100,3 +100,5 @@ firstMap.forEach(function(value, key) {
 // WeakMap, on the other hand, only accepts objects as keys, and these keys are held as weak references. This means that if there are no other references to a key object, it can be garbage collected even if it is still present in the WeakMap.
 
 // Consequently, this makes WeakMap suitable for scenarios where you want to associate some metadata or auxiliary data with objects, but without preventing them from being collected by the garbage collector when no longer needed.
+
+const firstWeakMap = new WeakMap([])
