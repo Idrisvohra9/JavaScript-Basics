@@ -30,14 +30,14 @@
 
 async function sendWeatherReport() {
     // These are Promise objects that will be resolved when we call the callback function in the .then() or is await-ed:
-    // Both resolve, and reject are arguments inside the callback function of the promise
-    const delhiWeather = new Promise((resolve, reject) => {
+    // Both resolve, and reject are arguments inside the callback function of the Promise constructor
+    const delhiWeather = new Promise((resolve) => {
         setTimeout(() => {
             // resolve is a way of returning a value inside the promise
             resolve("21 deg")
         }, 2000);
     });
-    const bangloreWeather = new Promise((resolve, reject) => {
+    const bangloreWeather = new Promise((resolve) => {
         setTimeout(() => { resolve("27 deg") }, 4000);
     });
 
@@ -56,13 +56,20 @@ async function sendWeatherReport() {
 
 console.log("Welcome to the Weather report service!");
 // This will return a pending Promise state as the Promise is not resolved
-console.log(sendWeatherReport());
+console.log(sendWeatherReport());// This does not resolve the promise but still goes through the time Out intervals and console logs
 
 console.log("event loop continuing parallel as the promises resolves")
 // Properly resolving both of the promises:
 
 sendWeatherReport().then((value) => console.log(value));
 
+// If we want to resolve the promises with async-await rather than the .then() chain, we can do so but when there is an await call it should be inside an async function or else it will throw an error.
+
+// Async await keyword resolving:
+// async function logWeatherReport(){
+//     console.log(await sendWeatherReport());
+// }
+// logWeatherReport();
 //| The output is really intresting:
 
 // Welcome to the Weather report service!
@@ -107,4 +114,4 @@ const main = async () => {
 }
 
 main();
-// So in the easy language a async function runs asynchronously making sure that all the promises are resolved inside the function and if all the promises are resolved than returns a value. till then the flow can move outside as well
+// So in the easy language a async function runs asynchronously making sure that all the promises are resolved inside the function and if all the promises are resolved than returns a value that can be accessed using .then or await by wrapping the await function call inside a async function and calling it. Till then the execution flow can move outside as well.

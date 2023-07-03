@@ -28,7 +28,6 @@ function SuccessFunction(ingredients) {
     console.log("Got the ingredients: ", ingredients);
 }
 
-console.log("Without error callback");
 
 // Calling
 getIngredients(SuccessFunction);
